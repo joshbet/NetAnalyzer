@@ -32,7 +32,7 @@ def main():
         
         if state == "open":
 ##            print(f'port {i} is {result}')
-            output.append(f'port {i} is {result}')
+            output.append(f'port {i} is {state}')
 
     return output
 
