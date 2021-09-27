@@ -1,0 +1,27 @@
+<html style="background-color:Silver; justify-content:space-evenly;">
+    <title>Mockup One</title>
+    <div class="topbar" style="display:flex; justify-content: space-between;">
+	<input type="text" id="ipaddress" name="ipaddress" value="Enter Device IP"></input>
+	<button type="submit">Scan</button>
+	<button type="button">?</button>
+	<b style="text-align:right; width:100%; padding:0;"></b>
+    	<input type="button" value="Settings"/>
+    </div>
+    <table style="border: 1px solid black; width:100%; height:100%; background-color: AliceBlue;">
+	<tr style="height:10px;">
+	    <th>Vulnerabilities</th>
+	    <th>Solutions</th>
+	</tr>
+	<py:for each="vulnerability in vulnerabilities">
+		<tr style="background-color: white; height:10px;">
+			<td style="border: 1px solid black;">${vulnerability}</td>
+	   	 	<td style="border: 1px solid black;">${solutions[vulnerability]}</td>
+		</tr>
+	</py:for>
+	<tr><b style="height:100px;"/></tr>
+    </table>
+    <div style="display:flex; justify-content: space-between;">
+	<b style="text-align:right; width:100%; padding:0;"></b>
+	NetAnalyzer
+    </div>
+</html>

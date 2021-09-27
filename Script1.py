@@ -5,31 +5,36 @@
 import socket
 import nmap
 
-#Commonly used ports
-begin = 20
-end = 445
+def main():
+    #Commonly used ports
+    begin = 20
+    end = 445
 
-#Gets hostname and local IP
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
+    #Gets hostname and local IP
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
 
-nmScan = nmap.PortScanner()
+    nmScan = nmap.PortScanner()
 
-#print(hostname)
-print(local_ip)
-print("      ")
-print("      ")
+##    #print(hostname)
+##    print(local_ip)
+##    print("      ")
+##    print("      ")
 
-#Loop that will check each port from the begin to end variable
-for i in range(begin,end+1):
-    
-    result = nmScan.scan(local_ip,str(i))
-    
-    
-    state = result['scan'][local_ip]['tcp'][i]['state']
-    
-    if state == "open":
-        print(f'port {i} is {result}')
+    result = nmScan.scan(local_ip, str(begin) + '-' + str(end)) #By moving our scan out of the loop and using the built in range scan, we increase speed several hundredfold -Matthew
+    keys = nmScan[local_ip]['tcp'].keys() #We only care about ports that are actually open, so we'll make a list of them here - Matthew
+    output = [] #Hold output in a list of strings so the interface can display them -Matthew
+  
+    #Loop that will check each port from the begin to end variable
+    for i in keys:
+        
+        state = result['scan'][local_ip]['tcp'][i]['state']
+        
+        if state == "open":
+##            print(f'port {i} is {result}')
+            output.append(f'port {i} is {result}')
+
+    return output
 
 
 
