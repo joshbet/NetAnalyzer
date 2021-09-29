@@ -1,13 +1,18 @@
 <html style="background-color:Silver; justify-content:space-evenly;">
     <title>Mockup One</title>
     <div class="topbar" style="display:flex; justify-content: space-between;">
-	<input type="text" id="ipaddress" name="ipaddress" value="Enter Device IP"></input>
-	<button type="submit">Scan</button>
+	<form style="display:flex; justify-content: space-between;">
+		<input type="text" id="ip" name="ip" value="Enter Device IP"></input>
+		<button type="submit">Scan</button>
+	</form>
 	<button type="button">?</button>
 	<b style="text-align:right; width:100%; padding:0;"></b>
     	<input type="button" value="Settings"/>
     </div>
-    <table style="border: 1px solid black; width:100%; height:100%; background-color: AliceBlue;">
+    <table style="border: 1px solid black; width:99%; height:93%; background-color: AliceBlue; position: absolute;">
+	<tr style="height:10px;">
+		<th>Currently scanning: ${device_name}</th>
+	</tr>
 	<tr style="height:10px;">
 	    <th>Vulnerabilities</th>
 	    <th>Solutions</th>
@@ -20,7 +25,7 @@
 	</py:for>
 	<tr><b style="height:100px;"/></tr>
     </table>
-    <div style="display:flex; justify-content: space-between;">
+    <div style="position:absolute; bottom:0; right:0;">
 	<b style="text-align:right; width:100%; padding:0;"></b>
 	NetAnalyzer
     </div>
