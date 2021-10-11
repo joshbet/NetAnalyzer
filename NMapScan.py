@@ -12,8 +12,8 @@ def main(ip=None) -> list[str]:
     If no IP is provided, it returns ports on the device it is running on.
     """
     #Commonly used ports
-    begin = 20
-    end = 445
+    begin = 1
+    end = 30000
 
     #Gets hostname and local IP
     hostname = socket.gethostname()
