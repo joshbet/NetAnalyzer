@@ -23,19 +23,23 @@ class RootController(TGController):
             else:
                 device_name = ip
             try:
-                vulnerabilities = portScan(ip)
+                vulnerabilities, solutions = portScan(ip)
             except KeyError:
                 vulnerabilities = []
                 device_name = 'Invalid IP Address'
-            solutions = {}
-            for vulnerability in vulnerabilities:
-                solutions[vulnerability] = "..."
-            return dict(vulnerabilities=vulnerabilities, solutions=solutions, device_name=device_name)
+##            solutions = {}
+##            for vulnerability in vulnerabilities:
+##                solutions[vulnerability] = "..."
+            return dict(vulnerabilities=vulnerabilities,
+                        solutions=solutions,
+                        device_name=device_name)
         else:
             vulnerabilities = []
             solutions = []
             device_name = ''
-            return dict(vulnerabilities=vulnerabilities, solutions=solutions, device_name=device_name)
+            return dict(vulnerabilities=vulnerabilities,
+                        solutions=solutions,
+                        device_name=device_name)
 
 config = MinimalApplicationConfigurator()
 config.update_blueprint({
