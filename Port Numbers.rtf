@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2630
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Port Number\
+\
+20, 21: Commonly used for File Transfer Protocol (FTP), FTP is not used that frequently today since there are more secure methods to transfer files over the network.\
+\
+22: Commonly used for Secure Shell (SSH), SSH allows users to execute commands on a system remotely through a command line.\
+\
+23: Telnet, this is mostly used as a diagnostic tool and can be used to send commands to devices over the network, it is disabled by default on Windows.\
+\
+25: Simple Mail Transfer Protocol (SMTP), This protocol is used for email communication, any incoming or outgoing emails will go through SMTP.\
+\
+50,51:  IPSec\
+\
+53: Domain Name System (DNS), DNS servers listen on this port, DNS is used to translate domain names into the correct IP address for the system to connect to. \
+\
+67,68: Dynamic Host Configuration Protocol (DHCP), DHCP is used for assigning IP addresses to devices on the network, it reduces the need to configure network devices manually by automatically assigning IP addresses and other connection parameters.\
+\
+69: Trivial File Transfer Protocol (TFTP), TFTP is a more insecure version of FTP and is commonly used for updating systems such as routers or configuration file transfers between systems on the local network. There are many pieces of malicious software that also use this port, it could be a cause for concern if this port is open on your system.\
+\
+80, 8080: HyperText Transfer Protocol (HTTP), Clients use this port to send and receive web pages from an HTTP server, alternatively port 8080 can be used most often when deploying an additional server for caching or to use as a proxy. If you are not running a web server on your system this port should typically be closed.\
+\
+110, 995: Post Office Protocol (POP3), This is the default port for POP3, it is commonly used for receiving emails from a remote server and it can allow users to download email messages and read them while offline. With this being the default port for this protocol it is unencrypted which could be a security concern, the encrypted port used for this protocol is port 995 which provides a more secure experience for the user.\
+\
+\
+\
+}
