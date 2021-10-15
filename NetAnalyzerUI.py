@@ -7,6 +7,7 @@ from tg import expose, TGController, MinimalApplicationConfigurator
 from wsgiref.simple_server import make_server
 from NMapScan import main as portScan
 import webbrowser
+from firewall_parser import firewall_check
 
 class RootController(TGController):
     """This class exposes interfaces on localhost:8080. Each exposed function
@@ -24,12 +25,16 @@ class RootController(TGController):
                 device_name = ip
             try:
                 vulnerabilities, solutions = portScan(ip)
+                firewall_data = firewall_check()
+                for category in firewall_data:
+                    if firewall_data[category]['State'] != 'ON':
+                        f_vulnerability = category + ' firewall is disabled'
+                        vulnerabilities.append(f_vulnerability)
+                        solutions[f_vulnerability] = 'Enable firewall'
             except KeyError:
                 vulnerabilities = []
                 device_name = 'Invalid IP Address'
-##            solutions = {}
-##            for vulnerability in vulnerabilities:
-##                solutions[vulnerability] = "..."
+                solutions = {}
             return dict(vulnerabilities=vulnerabilities,
                         solutions=solutions,
                         device_name=device_name)
