@@ -24,7 +24,8 @@ def main(ip=None) -> list[str]:
 
     result = nmScan.scan(ip, str(begin) + '-' + str(end)) 
     keys = nmScan[ip]['tcp'].keys()
-    output = [] 
+    vulnerabilities = []
+    solutions = {}
   
     #Loop that will check each port from the begin to end variable
     for i in keys:
@@ -32,9 +33,11 @@ def main(ip=None) -> list[str]:
         state = result['scan'][ip]['tcp'][i]['state']
         
         if state == "open":
-            output.append(f'port {i} is {state}')
+            problem = f'port {i} is {state}'
+            vulnerabilities.append(problem)
+            solutions[problem] = f'Secure port {i}'
 
-    return output
+    return vulnerabilities, solutions
 
 
 
