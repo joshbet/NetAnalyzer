@@ -8,6 +8,8 @@ from wsgiref.simple_server import make_server
 from NMapScan import main as portScan
 import webbrowser
 from firewall_parser import firewall_check
+from UpdateChecker import format_update_check as update_check
+from VPNChecker import format_vpn_check as vpn_check
 
 class RootController(TGController):
     """This class exposes interfaces on localhost:8080. Each exposed function
@@ -26,11 +28,19 @@ class RootController(TGController):
             try:
                 vulnerabilities, solutions = portScan(ip)
                 firewall_data = firewall_check()
+                update_data = update_check()
+                vpn_data = vpn_check()
                 for category in firewall_data:
                     if firewall_data[category]['State'] != 'ON':
                         f_vulnerability = category + ' firewall is disabled'
                         vulnerabilities.append(f_vulnerability)
                         solutions[f_vulnerability] = 'Enable firewall'
+                for result in update_data:
+                    vulnerabilities.append(result)
+                    solutions[result] = update_data[result]
+                for result in vpn_data:
+                    vulnerabilities.append(result)
+                    solutions[result] = vpn_data[result]
             except KeyError:
                 vulnerabilities = []
                 device_name = 'Invalid IP Address'
