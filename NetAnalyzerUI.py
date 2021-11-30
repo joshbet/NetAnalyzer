@@ -11,6 +11,14 @@ from firewall_parser import firewall_check
 from UpdateChecker import format_update_check as update_check
 from VPNChecker import format_vpn_check as vpn_check
 
+def check_score(issue_count) -> int:
+    threshholds = [20,15,10,5,0]
+    score = 0
+    for threshhold in threshholds:
+        if issue_count <= threshhold:
+            score += 1
+    return score
+
 class RootController(TGController):
     """This class exposes interfaces on localhost:8080. Each exposed function
     can be accessed by an http call to localhost:8080/identifier, where
@@ -45,16 +53,20 @@ class RootController(TGController):
                 vulnerabilities = []
                 device_name = 'Invalid IP Address'
                 solutions = {}
+            score = check_score(len(vulnerabilities))
             return dict(vulnerabilities=vulnerabilities,
                         solutions=solutions,
-                        device_name=device_name)
+                        device_name=device_name,
+                        score=score)
         else:
             vulnerabilities = []
             solutions = []
             device_name = ''
             return dict(vulnerabilities=vulnerabilities,
                         solutions=solutions,
-                        device_name=device_name)
+                        device_name=device_name,
+                        score=1)
+
 
 config = MinimalApplicationConfigurator()
 config.update_blueprint({
