@@ -5,9 +5,38 @@
 		<input type="text" id="ip" name="ip" value="Enter Device IP"></input>
 		<button type="submit">Scan</button>
 	</form>
-	<button type="button">?</button>
+	<button py:if="score==1" type="button" onclick="alert_window_1()">?</button>
+	<button py:if="score==2" type="button" onclick="alert_window_2()">?</button>
+	<button py:if="score==3" type="button" onclick="alert_window_3()">?</button>
+	<button py:if="score==4" type="button" onclick="alert_window_4()">?</button>
+	<button py:if="score==5" type="button" onclick="alert_window_5()">?</button>	
 	<b style="text-align:right; width:100%; padding:0;"></b>
     	<input type="button" value="Settings"/>
+
+	<script>
+	function alert_window_1() {
+	  	alert("Firewall: Firewalls protect your computer from unauthorized communications. You can enable your firewall in Settings to protect your device.Updates: Updates patch vulnerabilities which can lead to cyberattacks. Make sure your device is fully updated by checking for updates in Settings.\nSecurity Updates: Make sure your device is secure by checking for security updates in Settings. Security updates are especially important in keeping your device safe.\nVPN:  A Virtual Private Network makes your connection to the internet private. You can install a VPN for free online. Using a VPN makes your internet connection more private and secure.\nPassword: Changing your password regularly can protect against hackers guessing your password. You can change your password through your Microsoft account or in Settings depending on what kind of account you’re using.\nPorts: It can be insecure to have open ports because every open port is a potential way for a hacker to gain access to your computer. If a port is not being used by any applications, it should be closed. You can close it in Windows Firewall under Advanced Settings.\nBackup Drive: Drives are where your data is stored. A backup drive ensures that you won’t lose data if your primary drive fails. You should backup your data at least once a week.\nRunning processes: Unusual processes could be an indicator that your computer has malware. You can use Windows Defender to scan for malware.");
+	}
+
+	function alert_window_2() {
+		alert("Firewall: Enable your firewall in Settings to protect your device.\nUpdates: Make sure your device is fully updated by checking for updates in Settings. Updates patch vulnerabilities.\nSecurity Updates: Make sure your device is secure by checking for security updates in Settings. Security updates are especially important in keeping your device safe.\nVPN: Using a Virtual Private Network makes your internet connection more private and secure. You can search for and install a VPN online.\nPassword: Changing your password regularly protects against password-guessing attacks and other cyber-attacks. You can change your password through your Microsoft account or in Settings depending on what kind of account you’re using.\nPorts: It can be insecure to have open ports. If a port is not encrypted and is not being used by any applications, it should be closed. You can close it in Windows Firewall under Advanced Settings.\nBackup Drive: A backup drive ensures that you won’t lose data if your primary drive fails. You should backup your data at least once a week. You can configure a backup drive in Backup Settings.\nRunning processes: Unusual processes could be an indicator of malicious activity. You can review running process in Task Manager or use antivirus software to scan for malware.")
+	}
+
+	function alert_window_3() {
+		alert("Firewall: Enable your firewall to protect your device.\nUpdates: Make sure your device is fully updated by checking for updates in Settings.\nSecurity Updates: Make sure your device is secure by checking for security updates in Settings. Security updates are especially important in keeping your device safe.\nVPN: You can search for and install a VPN online to make your internet connection more secure and private.\nPassword: Passwords should be changed regularly. You can change your password through your Microsoft account or in Settings depending on what kind of account you’re using.\nPorts: If a port is not encrypted or being used by any applications, it should be closed. You can close it in Windows Firewall settings.  \nBackup Drive: You should backup your data at least once a week. You can configure a backup drive in Backup Settings. You can also backup your data to OneDrive or another cloud backup service.\nRunning processes: Unusual processes could be an indicator of malicious activity. You can review running process in Task Manager or use antivirus software to scan for malware.")
+	}
+
+	function alert_window_4() {
+		alert("Firewall: Enable your firewall to protect your device.\nUpdates: Make sure your device is fully updated by checking for updates. If you don’t want to install a certain update, you should check in Windows Update settings to make sure that the update isn’t patching a critical vulnerability.\nSecurity Updates: Make sure your device is secure by checking for security updates. You should probably install all security updates.\nVPN: Using a VPN can make your internet connection more secure and private.\nPassword: Your password should be changed regularly to protect against password guessing attacks, brute-force attacks, or dictionary attacks. You can also enable 2-factor authentication through your Microsoft account.\nPorts: Ports that are not being used should be closed or encrypted.\nBackup Drive: You can configure a backup drive in Backup Settings. You can also backup your data to OneDrive or another cloud backup service.\nRunning processes: You can review running process in Task Manager to make sure nothing is unusual. You can also use antivirus software to scan for malware.")
+	}
+
+	function alert_window_5() {
+		alert("Firewall: Enabling your firewall can keep your device more secure.\nUpdates: Make sure your device is fully updated by checking for updates. If you don’t want to install a certain update, you should check to make sure that the update isn’t patching a critical vulnerability.\nSecurity Updates: Make sure your device is secure by checking for security updates. You should probably install all security updates.\nVPN: A VPN can make your internet connection more secure and private.\nPassword: Your password should be changed regularly, but to keep your device very secure, you should enable 2-factor authentication through your Microsoft account.\nPorts: If you aren’t able to close a certain port, you should use a network firewall to prevent unwanted connections to that port.\nBackup Drive: Your data should be backed up regularly to a backup drive or a cloud backup.\nRunning processes: You can review running process in Task Manager to make sure nothing is unusual. You can also use antivirus software to scan for malware.")
+	}
+	</script>
+
+
+
     </div>
     <table style="border: 1px solid black; width:99%; height:93%; background-color: AliceBlue; position: absolute;">
 	<tr style="height:10px;">
